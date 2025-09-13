@@ -1,13 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodies App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <header id="navbar">
+        <nav>
+            <ul>
+                <li data-target="home">Home</li>
+                <li data-target="menu">Menu</li>
+                <li data-target="gallery">Gallery</li>
+                <li data-target="video">Video</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="full-section">
+        <h1>Welcome to Foodie</h1>
+        <p>Deliciousness jumping into the mouth.</p>
+    </section>
+
+    <section id="menu" class="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item" data-key="pizza">
+                <div class="menu-icon">🍕</div>
+                <h3 class="menu-name">Pizza</h3>
+                <p class="menu-desc">Stone-baked pizza with fresh mozzarella, tomatoes, and basil.</p>
+            </div>
+            <div class="menu-item" data-key="burger">
+                <div class="menu-icon">🍔</div>
+                <h3 class="menu-name">Burger</h3>
+                <p class="menu-desc">Juicy grilled beef patty, cheddar cheese, and crispy lettuce.</p>
+            </div>
+            <div class="menu-item" data-key="sushi">
+                <div class="menu-icon">🍣</div>
+                <h3 class="menu-name">Sushi</h3>
+                <p class="menu-desc">Assorted fresh nigiri and maki rolls with wasabi and soy sauce.</p>
+            </div>
+            <div class="menu-item" data-key="salad">
+                <div class="menu-icon">🥗</div>
+                <h3 class="menu-name">Salad</h3>
+                <p class="menu-desc">A fresh mix of seasonal greens, cherry tomatoes, and vinaigrette.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <p id="recipeText"></p>
+        </div>
+    </div>
+
+    <!-- Carousel -->
+    <section id="gallery" class="carousel">
+        <h2>Food Samples</h2>
+        <div class="carousel-track">
+            <div class="carousel-item"><img src="assets/pizza.jpg" alt="Pizza"></div>
+            <div class="carousel-item"><img src="assets/burger.jpg" alt="Burger"></div>
+            <div class="carousel-item"><img src="assets/sushi.jpg" alt="Sushi"></div>
+            <div class="carousel-item"><img src="assets/salad.jpg" alt="Salad"></div>
+        </div>
+        <button class="carousel-btn prev">&#10094;</button>
+        <button class="carousel-btn next">&#10095;</button>
+    </section>
+
+    <section id="video" class="video-section">
+        <h2>Cooking in Action</h2>
+        <video autoplay loop muted playsinline>
+            <source src="assets/cooking.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                &copy; Copyright Jung In Chang
+            </div>
+            <div class="social-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/recipes.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
 </html>

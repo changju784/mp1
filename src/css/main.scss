@@ -1,1 +1,277 @@
 /* Your SCSS here. */
+/* Variables */
+$background-color: #08085c;
+$primary-color: #db6334;
+$secondary-color: #2ecc71;
+$navbar-height: 80px;
+$navbar-height-scrolled: 50px;
+$transition-speed: 0.3s;
+$text-color: white;
+
+/* Mixins */
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin transition($props...) {
+    transition: $props $transition-speed ease-in-out;
+}
+
+/* Navbar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: $navbar-height;
+    background: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height $transition-speed ease, background $transition-speed ease;
+    z-index: 1000;
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        list-style: none;
+
+        li {
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: white;
+            transition: font-size $transition-speed ease-in-out;
+
+            &.active {
+                border-bottom: 2px solid white;
+            }
+        }
+    }
+
+    &.scrolled {
+        height: $navbar-height-scrolled;
+
+        nav ul li {
+            font-size: 1rem;
+        }
+    }
+}
+
+
+body {
+    background-color: $background-color;
+    color: $text-color;
+}
+
+.full-section {
+    background-color: $background-color;
+}
+
+/* Sections */
+.full-section {
+    min-height: 100vh;
+    width: 100%;
+    @include flex-center;
+    text-align: center;
+    padding: 2rem;
+
+    &.multi-column {
+        display: flex;
+        justify-content: space-around;
+
+        .column {
+            flex: 1;
+            margin: 1rem;
+        }
+    }
+
+    &#home {
+        display: flex;
+        flex-direction: column;
+        background: url('../assets/bg1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        text-align: center;
+        font: 1.5rem 'Arial', sans-serif;
+    }
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    color: white;
+
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: $primary-color; // or any accent color
+        margin: 1rem auto 0;
+        border-radius: 2px;
+    }
+}
+
+/* Menu */
+.menu {
+    padding: 4rem 2rem;
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .menu-item {
+        background: #f8f9fa;
+        color: black;
+        padding: 2rem;
+        border-radius: 8px;
+        transition: transform 0.3s;
+        text-align: center;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    overflow: hidden;
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        transform: translateY(-50%);
+
+        &:hover {
+            background: #e63946;
+        }
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    color: black;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+
+    .modal-content {
+        background: white;
+        margin: 10% auto;
+        padding: 2rem;
+        width: 50%;
+        @include flex-center;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}
+
+/* Video Section */
+.video-section {
+    text-align: center;
+    padding: 2rem;
+
+    video {
+        width: 80%; // scale video
+        max-width: 800px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Footer & Social Icons */
+footer {
+    background: $primary-color;
+    color: white;
+    padding: 1.5rem 2rem;
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between; // left + right
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto; // center container horizontally
+    }
+
+    .footer-left {
+        font-size: 1rem;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+
+        i {
+            font-size: 1.5rem;
+            cursor: pointer;
+
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+    }
+}
+
+/* Responsive Example */
+@media (max-width: 1024px) {
+    .multi-column {
+        flex-direction: column;
+    }
+
+    .carousel {
+        width: 95%;
+    }
+}
