@@ -69,6 +69,7 @@ prev.addEventListener('click', () => {
 // Initialize
 showSlide(0);
 
+// Auto-slide every 4 seconds
 setInterval(() => {
     showSlide(slideIndex + 1);
 }, 4000);
@@ -84,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".menu-item").forEach(item => {
         item.addEventListener("click", () => {
+            // Get recipe data
             const key = item.dataset.key;
             const recipe = recipes[key];
 
