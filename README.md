@@ -3,6 +3,8 @@
 A responsive single-page **Foodie Website** built with pure **HTML5, SCSS, and JavaScript**.  
 This project showcases a modern restaurant/food landing page with a sticky navbar, carousel, modal recipes, animations, and responsive layouts.
 
+<img width="2507" height="1324" alt="image" src="https://github.com/user-attachments/assets/fb7de267-8cc1-4cc9-81db-b50e0407c880" />
+
 ---
 
 ## Features
